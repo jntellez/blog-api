@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { validateJwt } = require('../middlewares/auth')
 
 const User = require('../models/User')
 
@@ -75,8 +74,8 @@ const Auth = {
     },
 
     getUser: async (req, res) => {
-        const { name, lastname, image } = req.auth
-        res.status(200).send({ name, lastname, image })
+        const { name, lastname, image, email } = req.auth
+        res.status(200).send({ name, lastname, image, email })
     },
 
     upload: async (req, res) => {
