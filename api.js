@@ -13,6 +13,7 @@ app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Content-Length, Accept, Access-Control-Allow-Request-Method')
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE, PATCH')
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
     next();
 })
@@ -26,5 +27,5 @@ app.get('*', (_req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`https://blogdejt.herokuapp.com/api/`)
+    console.log(`https://localhost:8000/api/`)
 })
