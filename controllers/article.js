@@ -100,7 +100,7 @@ const Article = {
     recommended: async (_req, res) => {
         const query = await Articles.find({})
 
-        if(!query) res.status(200).send('No hay articulos')
+        if (!query) res.status(200).send('No hay articulos')
         
         query.sort((art1, art2) => {
             const comment1 = JSON.parse(art1.comments)
@@ -112,7 +112,8 @@ const Article = {
         })
 
         const recommended = []
-        for(let i = 0; i < 3; i++) {
+        const recommendedLength = query.length >= 3 ? 3 : query.length
+        for (let i = 0; i < recommendedLength; i++) {
             recommended[i] = query[i]
         }
 
