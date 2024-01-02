@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const User = mongoose.model('Article', {
+const Article = mongoose.model('Article', {
     title: { type: String, required: true, minLength: 3 },
     content: { type: String, required: true, minLength: 3 },
     image: { type: String },
@@ -9,4 +9,4 @@ const User = mongoose.model('Article', {
     date: { type: Date, default: Date.now },
 })
 
-module.exports = User
+module.exports = Article
